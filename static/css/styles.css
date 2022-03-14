@@ -1,0 +1,9 @@
+body {
+    font-family: 'Montserrat';
+}
+.jumbotron{
+     background-image: url("../img/back.jpg");
+     background-size: cover;
+     background-repeat: no-repeat;
+
+}
