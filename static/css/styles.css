@@ -1,9 +1,19 @@
 body {
     font-family: 'Montserrat';
+    text-align:center;
+
 }
 .jumbotron{
-     background-image: url("../img/back.jpg");
+     background-image: url("../img/back1.jpg");
      background-size: cover;
      background-repeat: no-repeat;
+}
 
+h1 {
+    color: #BB9981;
+    font-weight:700;
+}
+
+.head {
+    padding-top:6%;
 }
