@@ -13,7 +13,27 @@ h1 {
     color: #BB9981;
     font-weight:700;
 }
-
 .head {
     padding-top:6%;
+    padding-bottom:6%;
+}
+
+.cafes {
+    padding:3%;
+
+}
+
+#cafes {
+    color: #BB9981;
+    font-weight:400;
+}
+
+#cafes > tbody > tr >td {
+    color: #BB9981;
+    font-weight:400;
+
+}
+
+#cafes > tbody > tr > td:nth-child(6) > a {
+    text-decoration:none;
 }

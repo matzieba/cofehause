@@ -3,6 +3,34 @@
 <div class = 'head'>
     <h1>Welcome to the best Cofe Hauses in KRK</h1>
 </div>
+<div class = "cafes">
+    {% block content %}
+  <table id="cafes" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Adres</th>
+        <th>Cofe Quality</th>
+        <th>Wi-Fi Quality</th>
+        <th>Komentar</th>
+          <th>google_maps</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cofe in cofes %}
+        <tr>
+          <td>{{ cofe.name }}</td>
+          <td>{{ cofe.adres}}</td>
+          <td>{{ cofe.cofe_quality }}</td>
+          <td>{{ cofe.wifi_quality}}</td>
+          <td>{{ cofe.komentar }}</td>
+            <td><a href = "{{ cofe.google_maps }}">🌍</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+</div>
 
 </body>
 {% include "footer.html" %}
