@@ -1,7 +1,7 @@
 body {
     font-family: 'Montserrat';
     text-align:center;
-
+    color: #BB9981;
 }
 .jumbotron{
      background-image: url("../img/back1.jpg");
@@ -14,13 +14,11 @@ h1 {
     font-weight:700;
 }
 .head {
-    padding-top:6%;
-    padding-bottom:6%;
+    padding-top:15%;
+
 }
-
 .cafes {
-    padding:3%;
-
+    padding:5%;
 }
 
 #cafes {
@@ -37,3 +35,15 @@ h1 {
 #cafes > tbody > tr > td:nth-child(6) > a {
     text-decoration:none;
 }
+
+.registerform {
+    padding:10%;
+    width:50%;
+    text-align:center;
+}
+
+.flashes {
+    padding:5%;
+}
+
+
