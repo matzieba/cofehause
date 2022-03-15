@@ -70,8 +70,8 @@ if __name__ == "__main__":
 # TODO: creating cofehouse Database, name, adres, cofe quality, wifi quality, googlemaps, komentar
 # TODO: Database as list on index site
 # TODO: register user + Database + passwordhasching
-# TODO: login formular  + checking if users loged in
 # TODO: Navbar
+# TODO: login formular  + checking if users loged in
 # TODO: ad a new coffe haouse formular (only registered users)
 # TODO: delete coffe haouse, only admin
 # TODO: lounching the app
