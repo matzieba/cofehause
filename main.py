@@ -122,6 +122,14 @@ def add_new_house():
                 return redirect(url_for('login'))
     return render_template('add_new.html', form = form, current_user=current_user)
 
+@app.route("/delete/<int:cofeause_id>", methods = ['POST', 'GET'])
+@admin_only
+def delete(cofeause_id):
+    cofe_to_del = CofeHauses.query.get(cofeause_id)
+    db.session.delete(cofe_to_del)
+    db.session.commit()
+    return redirect(url_for('all_cofe_hauses'))
+
 if __name__ == "__main__":
     app.run(debug = True)
 

@@ -52,5 +52,10 @@ h1 {
     list-style:none ;
 }
 
+#cafes > tbody > tr > td:nth-child(7) > a {
+    text-decoration:none;
+    color:red;
+}
+
 
 
