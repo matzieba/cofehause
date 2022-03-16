@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-from forms import UserRegisterForm, LoginForm, CofeHause
+from forms import UserRegisterForm, LoginForm, CofeHause, ContactForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
 from funktions import admin_only, loged_only
+import os
+import smtplib
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -49,6 +51,27 @@ db.create_all()
 def all_cofe_hauses():
     cofes = CofeHauses.query.all()
     return render_template('index.html', cofes = cofes, current_user=current_user)
+
+@app.route("/contact")
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        message = {
+            "title":form.title.data.encode('utf-8'),
+            "email":form.email.data,
+            "message":form.body.data.encode('utf-8'),
+        }
+        my_email = os.environ.get("my_email")
+        password = os.environ.get("password")
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+            connection.starttls()
+            connection.login(user=my_email, password=password)
+            connection.sendmail(from_addr=my_email,
+                                to_addrs="matizieba@gmail.com",
+                                msg=f"Subject:{message['title']}\n\n{message['message']} from: {message['email']}",)
+            return redirect(url_for('main'))
+    return render_template('contact.html', form=form, current_user=current_user)
+
 
 @app.route("/register", methods = ['GET', 'POST'])
 def register():

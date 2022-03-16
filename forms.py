@@ -29,3 +29,9 @@ class CofeHause(FlaskForm):
     wifi_quality = MultiCheckboxField('Wi-Fi quality', choices=files_wifi)
     komentar = StringField("Your Opinion", validators=[DataRequired()])
     submit = SubmitField("Submit")
+
+class ContactForm(FlaskForm):
+    title = StringField("Name", validators=[DataRequired()])
+    email = StringField("Your email", validators=[DataRequired(), Email()])
+    message = StringField("Name", validators=[DataRequired()])
+    submit = SubmitField("Contact!")
