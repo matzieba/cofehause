@@ -1,13 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-from forms import UserRegisterForm
+from forms import UserRegisterForm, LoginForm, CofeHause
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
+from funktions import admin_only, loged_only
 
 app = Flask(__name__)
 Bootstrap(app)
 SECRET_KEY = "adkmg,adsgk,fdsmhgl242467327"
 app.config['SECRET_KEY'] = SECRET_KEY
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(int(user_id))
 
 
 ##CONNECT TO DB
@@ -27,7 +35,7 @@ class CofeHauses(db.Model):
     komentar = db.Column(db.Text, nullable=False)
     google_maps = db.Column(db.String(250), nullable=False)
 
-class Users(db.Model):
+class Users(UserMixin,db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
@@ -40,7 +48,7 @@ db.create_all()
 @app.route("/")
 def all_cofe_hauses():
     cofes = CofeHauses.query.all()
-    return render_template('index.html', cofes = cofes )
+    return render_template('index.html', cofes = cofes, current_user=current_user)
 
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
@@ -61,7 +69,58 @@ def register():
 
         return redirect(url_for('all_cofe_hauses'))
 
-    return render_template('register.html', form = form )
+    return render_template('register.html', form = form, current_user=current_user)
+
+@app.route("/login", methods = ['GET','POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = request.form.get('email')
+        password = request.form.get('password')
+        user = Users.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                login_user(user)
+                return redirect(url_for('all_cofe_hauses'))
+            else:
+                flash('Wrong password')
+                return redirect(url_for('login'))
+        else:
+            flash('Email does not exist in DataBase')
+            return redirect(url_for('login'))
+    return render_template('login.html', form = form, current_user=current_user)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('all_cofe_hauses'))
+
+@app.route("/add", methods = ['GET','POST'])
+@loged_only
+def add_new_house():
+    form = CofeHause()
+    name = request.form.get('name')
+    if form.validate_on_submit():
+        if CofeHauses.query.filter_by(name=name).first():
+            flash('Already in Database!')
+            return redirect(url_for('all_cofe_hauses'))
+        else:
+            if current_user.is_authenticated:
+                new_hause = CofeHauses(
+                    name = request.form.get('name'),
+                    adres = request.form.get('name'),
+                    wifi_quality = request.form.get('wifi_quality'),
+                    komentar = request.form.get('komentar'),
+                    google_maps = request.form.get('google_maps'),
+                    cofe_quality = request.form.get('cofe_quality'),
+                    )
+                db.session.add(new_hause)
+                db.session.commit()
+                return redirect(url_for('all_cofe_hauses'))
+            else:
+                flash('Please log in before adding a new place!')
+                return redirect(url_for('login'))
+    return render_template('add_new.html', form = form, current_user=current_user)
 
 if __name__ == "__main__":
     app.run(debug = True)
@@ -71,8 +130,10 @@ if __name__ == "__main__":
 # TODO: Database as list on index site
 # TODO: register user + Database + passwordhasching
 # TODO: Navbar
-# TODO: login formular  + checking if users loged in
-# TODO: ad a new coffe haouse formular (only registered users)
-# TODO: delete coffe haouse, only admin
+# TODO: login formular  + checking if users loged in + menu if user is logedin/logedout
+# TODO: ad a new coffe house formular (only registered users)
+# TODO: delete coffe house, only admin
+# TODO: register/login Form Styling
+# TODO: contact form
 # TODO: lounching the app
-
+# TODO: login manager??

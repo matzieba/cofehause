@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block body %}
+<body class="jumbotron">
+    <div class = 'registerform'>
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "secondary"}) }}
+    </div>
+</body>
+
+{% endblock %}
+{% include "footer.html" %}
