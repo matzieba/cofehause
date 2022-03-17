@@ -11,7 +11,7 @@ import smtplib
 app = Flask(__name__)
 Bootstrap(app)
 SECRET_KEY = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY'] = SECRET_KEY
+app.config["SECRET_KEY"] = SECRET_KEY
 login_manager = LoginManager()
 login_manager.init_app(app)
 
