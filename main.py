@@ -52,7 +52,7 @@ def all_cofe_hauses():
     cofes = CofeHauses.query.all()
     return render_template('index.html', cofes = cofes, current_user=current_user)
 
-@app.route("/contact")
+@app.route("/contact", methods = ['GET', 'POST'])
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
