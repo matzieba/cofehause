@@ -59,7 +59,7 @@ def contact():
         message = {
             "title":form.title.data.encode('utf-8'),
             "email":form.email.data,
-            "message":form.body.data.encode('utf-8'),
+            "message":form.message.data.encode('utf-8'),
         }
         my_email = os.environ.get("my_email")
         password = os.environ.get("password")

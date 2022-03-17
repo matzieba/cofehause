@@ -32,5 +32,5 @@ class CofeHause(FlaskForm):
 class ContactForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     email = StringField("Your email", validators=[DataRequired(), Email()])
-    message = StringField("Name", validators=[DataRequired()])
+    message = StringField("message", validators=[DataRequired()])
     submit = SubmitField("Contact!")
