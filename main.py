@@ -69,7 +69,7 @@ def contact():
             connection.sendmail(from_addr=my_email,
                                 to_addrs="matizieba@gmail.com",
                                 msg=f"Subject:{message['title']}\n\n{message['message']} from: {message['email']}",)
-            return redirect(url_for('main'))
+            return redirect(url_for('all_cofe_hauses'))
     return render_template('contact.html', form=form, current_user=current_user)
 
 
