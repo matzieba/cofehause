@@ -158,6 +158,5 @@ if __name__ == "__main__":
     app.run(debug = True)
 
 
-# TODO: register == login
 # TODO: more; dodano dnia, dodano przez, komentarze,
 

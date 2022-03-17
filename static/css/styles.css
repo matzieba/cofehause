@@ -66,5 +66,9 @@ h1 {
    width:100%;
 
 }
+#footer > p > a {
+    ext-decoration:none;
+
+}
 
 
