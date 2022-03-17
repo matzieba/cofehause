@@ -36,15 +36,16 @@
               </li>
 
             {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
-                  </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('add_new_house')}}">Add new Place</a>
                   </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{current_user.name}}</a>
                   </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                      </li>
             {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{{url_for('contact')}}">Contact</a>
