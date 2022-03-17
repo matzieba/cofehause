@@ -67,8 +67,8 @@ h1 {
 
 }
 #footer > p > a {
-    ext-decoration:none;
-
+    text-decoration:none;
+    color: #BB9981;
 }
 
 
