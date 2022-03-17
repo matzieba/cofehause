@@ -131,7 +131,7 @@ def add_new_house():
             if current_user.is_authenticated:
                 new_hause = CofeHauses(
                     name = request.form.get('name'),
-                    adres = request.form.get('name'),
+                    adres = request.form.get('adres'),
                     wifi_quality = request.form.get('wifi_quality'),
                     komentar = request.form.get('komentar'),
                     google_maps = request.form.get('google_maps'),
