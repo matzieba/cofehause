@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, URL, Email
-from flask_ckeditor import CKEditorField
 from wtforms import widgets, SelectMultipleField
 
 class UserRegisterForm(FlaskForm):
@@ -22,7 +21,7 @@ class MultiCheckboxField(SelectMultipleField):
 class CofeHause(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     adres = StringField("Adres", validators=[DataRequired()])
-    google_maps = StringField("Google Maps URL", validators=[DataRequired(),URL()])
+    google_maps = StringField("Google Maps URL", validators=[DataRequired(), URL()])
     files_cofe = [i*'☕' for i in range(1,6)]
     cofe_quality = MultiCheckboxField('Cofe quality', choices=files_cofe)
     files_wifi = [i * '⚡' for i in range(1, 6)]

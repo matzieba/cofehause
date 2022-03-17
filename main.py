@@ -167,4 +167,4 @@ if __name__ == "__main__":
 # TODO: register/login Form Styling
 # TODO: contact form
 # TODO: lounching the app
-# TODO: login manager??
+

@@ -2,11 +2,13 @@ body {
     font-family: 'Montserrat';
     text-align:center;
     color: #BB9981;
+
 }
 .jumbotron{
      background-image: url("../img/back1.jpg");
      background-size: cover;
      background-repeat: no-repeat;
+
 }
 
 h1 {
@@ -37,10 +39,12 @@ h1 {
 }
 
 .registerform {
-    padding:10%;
-    width:50%;
+    width:30%;
     text-align:center;
+    margin:10% 30% 10% 30%;
+
 }
+
 
 .flashes {
     padding-top:8%;
