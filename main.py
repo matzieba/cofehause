@@ -90,8 +90,8 @@ def register():
         )
         db.session.add(new_user)
         db.session.commit()
-
-        return redirect(url_for('all_cofe_hauses'))
+        login_user(new_user)
+        return redirect(url_for('all_cofe_hauses', current_user=current_user))
 
     return render_template('register.html', form = form, current_user=current_user)
 
