@@ -60,6 +60,11 @@ h1 {
     text-decoration:none;
     color:red;
 }
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
 
+}
 
 
