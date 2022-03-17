@@ -157,15 +157,7 @@ def delete(cofeause_id):
 if __name__ == "__main__":
     app.run(debug = True)
 
-
-# TODO: creating cofehouse Database, name, adres, cofe quality, wifi quality, googlemaps, komentar
-# TODO: Database as list on index site
-# TODO: register user + Database + passwordhasching
-# TODO: Navbar
-# TODO: login formular  + checking if users loged in + menu if user is logedin/logedout
-# TODO: ad a new coffe house formular (only registered users)
-# TODO: delete coffe house, only admin
-# TODO: register/login Form Styling
-# TODO: contact form
-# TODO: lounching the app
+# TODO: footer
+# TODO: register == login
+# TODO: more; dodano dnia, dodano przez, komentarze,
 
