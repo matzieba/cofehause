@@ -11,7 +11,10 @@ body {
 }
 
 /*Navbar*/
+body > nav > div {
+    margin:5%;
 
+}
 #navbarNav{
     text-align:right;
     font-size: xx-large;
