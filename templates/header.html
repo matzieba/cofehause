@@ -18,13 +18,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
       <a class="navbar-brand" href="{{url_for('all_cofe_hauses')}}">Find Perfect WorkSpace</a>
       <button class="navbar-toggler ms-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
+        <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
             {% if not current_user.is_authenticated: %}

@@ -12,8 +12,7 @@ body {
 
 /*Navbar*/
 
-}
-#navbarNav{
+#NavbarNav{
     text-align:right;
     font-size: xx-large;
 }
@@ -25,6 +24,7 @@ body {
 .navbar-brand {
   font-size: xx-large;
   display: inline-block;
+  text-align:left;
 }
 
 .nav-link {
