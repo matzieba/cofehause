@@ -158,6 +158,7 @@ if __name__ == "__main__":
     app.run()
 
 
+# TODO: relativ DB
 # TODO: more; dodano dnia, dodano przez, komentarze, strona ze szczegolami a propo miejsca
 # TODO: karta uzytkownika, zdjecie profilowe, dodawanie komenatrzy
 # TODO: zapomnialem hasla,
