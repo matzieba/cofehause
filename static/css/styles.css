@@ -8,17 +8,40 @@ body {
      background-image: url("../img/back1.jpg");
      background-size: cover;
      display: block;
-
 }
 
+/*Navbar*/
+
+#navbarNav{
+    text-align:right;
+    font-size: xx-large;
+}
+
+.nav{
+    padding-bottom:20%;
+
+}
+.navbar-brand {
+  font-size: xx-large;
+  display: inline-block;
+}
+
+.nav-link {
+   font-size: xx-large;
+
+}
+.nav-item {
+  padding: 0 10px;
+}
 h1 {
     color: #BB9981;
     font-weight:700;
 }
+
 .head {
     padding-top:15%;
-
 }
+
 .cafes {
     padding:5%;
 }
@@ -31,7 +54,6 @@ h1 {
 #cafes > tbody > tr >td {
     color: #BB9981;
     font-weight:400;
-
 }
 
 #cafes > tbody > tr > td:nth-child(6) > a {
@@ -42,7 +64,6 @@ h1 {
     width:30%;
     text-align:center;
     margin:10% 30% 10% 30%;
-
 }
 
 

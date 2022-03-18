@@ -155,8 +155,11 @@ def delete(cofeause_id):
     return redirect(url_for('all_cofe_hauses'))
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run()
 
 
-# TODO: more; dodano dnia, dodano przez, komentarze,
+# TODO: more; dodano dnia, dodano przez, komentarze, strona ze szczegolami a propo miejsca
+# TODO: karta uzytkownika, zdjecie profilowe, dodawanie komenatrzy
+# TODO: zapomnialem hasla,
+
 
