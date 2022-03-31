@@ -7,11 +7,13 @@ from flask_login import UserMixin, login_user, LoginManager, current_user, logou
 from funktions import admin_only, loged_only
 import os
 import smtplib
+from sqlalchemy.orm import relationship
+
 
 app = Flask(__name__)
 Bootstrap(app)
 #os.environ.get("SECRET_KEY")
-SECRET_KEY = asdasds
+SECRET_KEY = 'asdasds'
 app.config["SECRET_KEY"] = SECRET_KEY
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -39,6 +41,13 @@ class CofeHauses(db.Model):
     wifi_quality = db.Column(db.String(250), nullable=False)
     komentar = db.Column(db.Text, nullable=False)
     google_maps = db.Column(db.String(250), nullable=False)
+
+    #relativ_db
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
+
+    user_numb  = relationship("Users", foreign_keys = user_id)
+    user_nam = relationship("Users", foreign_keys = user_name)
 
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
@@ -139,6 +148,8 @@ def add_new_house():
                     komentar = request.form.get('komentar'),
                     google_maps = request.form.get('google_maps'),
                     cofe_quality = request.form.get('cofe_quality'),
+                    user_id = current_user.id,
+                    user_name = current_user.name
                     )
                 db.session.add(new_hause)
                 db.session.commit()
