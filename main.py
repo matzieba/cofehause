@@ -132,7 +132,7 @@ def logout():
     logout_user()
     return redirect(url_for('all_cofe_hauses'))
 
-@app.route("/user/<int:user>")
+@app.route("/<int:user>")
 def user(user):
     user_id = user
     user = Users.query.get(user_id)

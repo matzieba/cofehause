@@ -84,7 +84,7 @@ h1 {
     color:red;
 }
 #footer {
-   position:sticku;
+   position:sticky;
    bottom:0;
    width:100%;
 

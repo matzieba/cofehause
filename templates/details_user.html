@@ -9,16 +9,14 @@
         <div class = "usersfoto">
             <img src = "/static/img/profilfotodummy.png">
         </div>
-        <table id="userdetail" class="table table-striped">
-            <tbody>
-                <tr>
-                    <td>{{user.name}}</td>
-                </tr>
-                <tr>
-                    <td>{{user.about}} </td>
-                </tr>
-            </tbody>
-        </table>
+        <div>
+            <p>{{user.name}}</p>
+            <p>{{user.about}}</p>
+
+        </div>
+
+
+
     </div>
 </body>
 {% include "footer.html" %}
