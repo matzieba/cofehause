@@ -87,12 +87,22 @@ h1 {
 
 .usersdetail {
     width:30%;
-    border:1px solid white;
     margin:15% 35% 10% 35%;
-
-
-
 }
+
+.usersfoto {
+    padding:5%;
+    border:1px solid white;
+}
+.usersdata{
+
+    border:1px solid white;
+}
+.usersdata > p {
+    border:1px solid white;
+}
+
+
 #footer {
    position:sticky;
    bottom:0;

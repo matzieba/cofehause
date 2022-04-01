@@ -11,7 +11,11 @@
         </div>
         <div class = "usersdata">
             <p>{{user.name}}</p>
+            {% if user.about == None%}
+            <p>{{user.name}} does not want to share information about himself</p>
+            {% else %}
             <p>{{user.about}}</p>
+            {% endif %}
         </div>
 
 
