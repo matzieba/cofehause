@@ -17,7 +17,8 @@
         <th>Cofe Quality</th>
         <th>Wi-Fi Quality</th>
         <th>Komentar</th>
-          <th>google_maps</th>
+        <th>google_maps</th>
+        <th>added_by</th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +29,8 @@
           <td>{{ cofe.cofe_quality }}</td>
           <td>{{ cofe.wifi_quality}}</td>
           <td>{{ cofe.komentar }}</td>
-            <td><a href = "{{ cofe.google_maps }}">🌍</a></td>
+          <td><a href = "{{ cofe.google_maps }}">🌍</a></td>
+          <td><a href = "{{url_for('user', user = cofe.user_id )}}"> {{ cofe.user_name }} </a></td>
           {% if current_user.id == 1: %}
           <td><a href = "{{url_for('delete', cofeause_id=cofe.id)}}">✘</a></td>
           {% endif %}

@@ -55,6 +55,8 @@ class Users(UserMixin,db.Model):
     name = db.Column(db.String(250), nullable=False)
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
+    about = db.Column(db.Text)
+
 
 
 db.create_all()
@@ -130,6 +132,13 @@ def logout():
     logout_user()
     return redirect(url_for('all_cofe_hauses'))
 
+@app.route("/user/<int:user>")
+def user(user):
+    user_id = user
+    user = Users.query.get(user_id)
+    return render_template('details_user.html', user = user )
+
+
 @app.route("/add", methods = ['GET','POST'])
 @loged_only
 def add_new_house():
@@ -168,7 +177,7 @@ def delete(cofeause_id):
     return redirect(url_for('all_cofe_hauses'))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 # TODO: relativ DB

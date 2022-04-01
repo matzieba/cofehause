@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block body %}
+<body class="jumbotron">
+    <div class = 'usersdetail'>
+        <div class = "usersfoto">
+            <img src = "/static/img/profilfotodummy.png">
+        </div>
+        <table id="userdetail" class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>{{user.name}}</td>
+                </tr>
+                <tr>
+                    <td>{{user.about}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+{% include "footer.html" %}
+{% endblock %}
