@@ -132,11 +132,28 @@ def logout():
     logout_user()
     return redirect(url_for('all_cofe_hauses'))
 
-@app.route("/<int:user>")
+@app.route("/user/<int:user>")
 def user(user):
     user_id = user
     user = Users.query.get(user_id)
     return render_template('details_user.html', user = user )
+
+@app.route("/edit/<int:cofeause_id>", methods = ['GET','POST'])
+def edit(cofeause_id):
+    cofe_to_edit = CofeHauses.query.get(cofeause_id)
+    form = CofeHause(
+        name = cofe_to_edit.name,
+        adres = cofe_to_edit.adres,
+        google_maps = cofe_to_edit.google_maps,
+        cofe_quality = cofe_to_edit.cofe_quality,
+        wifi_quality = cofe_to_edit.wifi_quality,
+        komentar = cofe_to_edit.komentar
+    )
+    if form.validate_on_submit():
+
+    return render_template('add_new.html', form=form)
+
+
 
 
 @app.route("/add", methods = ['GET','POST'])

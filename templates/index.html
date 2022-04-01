@@ -34,6 +34,9 @@
           {% if current_user.id == 1: %}
           <td><a href = "{{url_for('delete', cofeause_id=cofe.id)}}">✘</a></td>
           {% endif %}
+          {% if current_user.id == cofe.user_id %}
+          <td><a href = "{{url_for('edit', cofeause_id=cofe.id)}}">Edit</a></td>
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>

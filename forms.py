@@ -34,3 +34,14 @@ class ContactForm(FlaskForm):
     email = StringField("Your email", validators=[DataRequired(), Email()])
     message = StringField("message", validators=[DataRequired()])
     submit = SubmitField("Contact!")
+
+class CofeHauseEdit(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    adres = StringField("Adres", validators=[DataRequired()])
+    google_maps = StringField("Google Maps URL", validators=[DataRequired(), URL()])
+    files_cofe = [i*'☕' for i in range(1,6)]
+    cofe_quality = MultiCheckboxField('Cofe quality', choices=files_cofe)
+    files_wifi = [i * '⚡' for i in range(1, 6)]
+    wifi_quality = MultiCheckboxField('Wi-Fi quality', choices=files_wifi)
+    komentar = StringField("Your Opinion", validators=[DataRequired()])
+    submit = SubmitField("Submit")
