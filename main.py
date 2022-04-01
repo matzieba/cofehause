@@ -136,7 +136,7 @@ def logout():
 def user(user):
     user_id = user
     user = Users.query.get(user_id)
-    return render_template('details_user.html', user = user )
+    return render_template('details_user.html', user = user, current_user=current_user )
 
 @app.route("/edit/<int:cofeause_id>", methods = ['GET','POST'])
 def edit(cofeause_id):
@@ -150,8 +150,16 @@ def edit(cofeause_id):
         komentar = cofe_to_edit.komentar
     )
     if form.validate_on_submit():
+        cofe_to_edit.name = request.form.get('name')
+        cofe_to_edit.adres = request.form.get('adres')
+        cofe_to_edit.google_maps = request.form.get('google_maps')
+        cofe_to_edit.cofe_quality = request.form.get('cofe_quality')
+        cofe_to_edit.wifi_quality = request.form.get('wifi_quality')
+        cofe_to_edit.komentar = request.form.get('komentar')
+        db.session.commit()
+        return redirect(url_for('all_cofe_hauses', current_user=current_user))
 
-    return render_template('add_new.html', form=form)
+    return render_template('add_new.html', form=form, current_user=current_user)
 
 
 
