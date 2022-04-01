@@ -65,7 +65,7 @@ h1 {
 .registerform {
     width:30%;
     text-align:center;
-    margin:10% 30% 10% 30%;
+    margin:15% 35% 10% 35%;
 }
 
 
@@ -82,6 +82,16 @@ h1 {
 #cafes > tbody > tr > td:nth-child(7) > a {
     text-decoration:none;
     color:red;
+}
+
+
+.usersdetail {
+    width:30%;
+    border:1px solid white;
+    margin:15% 35% 10% 35%;
+
+
+
 }
 #footer {
    position:sticky;
