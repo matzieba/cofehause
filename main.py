@@ -206,6 +206,7 @@ if __name__ == "__main__":
 
 
 # TODO: relativ DB
+# TODO: edycja profilu
 # TODO: more; dodano dnia, dodano przez, komentarze, strona ze szczegolami a propo miejsca
 # TODO: karta uzytkownika, zdjecie profilowe, dodawanie komenatrzy
 # TODO: zapomnialem hasla,
