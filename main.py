@@ -12,9 +12,9 @@ from sqlalchemy.orm import relationship
 
 app = Flask(__name__)
 Bootstrap(app)
-#os.environ.get("SECRET_KEY")
-SECRET_KEY = "asdasd"
-app.config["SECRET_KEY"] = SECRET_KEY
+#
+
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -24,9 +24,9 @@ def load_user(user_id):
 
 
 ##CONNECT TO DB
-#"sqlite:///coffe.db"
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
+#
+#os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///coffe.db"
 
 db = SQLAlchemy(app)
 
@@ -202,7 +202,7 @@ def delete(cofeause_id):
     return redirect(url_for('all_cofe_hauses'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
 
 # TODO: relativ DB
