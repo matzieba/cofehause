@@ -7,11 +7,13 @@ from flask_login import UserMixin, login_user, LoginManager, current_user, logou
 from funktions import admin_only, loged_only
 import os
 import smtplib
+from sqlalchemy.orm import relationship
 
 app = Flask(__name__)
 Bootstrap(app)
-SECRET_KEY = os.environ.get("SECRET_KEY")
-app.config["SECRET_KEY"] = SECRET_KEY
+##SECRET_KEY = 'sdsdsd'
+
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -21,7 +23,8 @@ def load_user(user_id):
 
 
 ##CONNECT TO DB
-"sqlite:///new-books-collection.db"
+##
+#"sqlite:///new-books-collection.db"
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -29,7 +32,7 @@ db = SQLAlchemy(app)
 ##CONFIGURE DB TABLES
 
 class CofeHauses(db.Model):
-    __tablename__ = "cofe hauses"
+    __tablename__ = "cofe_hauses"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True, nullable=False)
     adres = db.Column(db.String(250), nullable=False)
@@ -38,12 +41,18 @@ class CofeHauses(db.Model):
     komentar = db.Column(db.Text, nullable=False)
     google_maps = db.Column(db.String(250), nullable=False)
 
+
+
+    author_name = db.Column(db.Integer, db.ForeignKey("users.name"), nullable=False)
+
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
+
+    hauses = relationship("CofeHauses", backref="users")
 
 
 db.create_all()
@@ -137,7 +146,8 @@ def add_new_house():
                     komentar = request.form.get('komentar'),
                     google_maps = request.form.get('google_maps'),
                     cofe_quality = request.form.get('cofe_quality'),
-                    )
+                    author_name = current_user.name
+                )
                 db.session.add(new_hause)
                 db.session.commit()
                 return redirect(url_for('all_cofe_hauses'))
