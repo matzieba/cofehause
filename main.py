@@ -12,7 +12,6 @@ from sqlalchemy.orm import relationship
 
 app = Flask(__name__)
 Bootstrap(app)
-#
 
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 login_manager = LoginManager()
@@ -25,9 +24,9 @@ def load_user(user_id):
 
 ##CONNECT TO DB
 #"sqlite:///coffe.db"
-#os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://vupmoxgmopzmov:7be3fabc4645573a216ba71b75f74a4a1c8359ff16a2088c5fd3dff1a0d5b575@ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d4ege44chunsdj"
-
+#
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 ##CONFIGURE DB TABLES
