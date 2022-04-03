@@ -11,7 +11,7 @@ from sqlalchemy.orm import relationship
 
 app = Flask(__name__)
 Bootstrap(app)
-##SECRET_KEY = 'sdsdsd'
+##SECRET_KEY = ''
 
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 login_manager = LoginManager()
@@ -23,9 +23,9 @@ def load_user(user_id):
 
 
 ##CONNECT TO DB
-##os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
-#
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///new-books-collection.db"
+##
+#"sqlite:///new-books-collection.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -43,7 +43,7 @@ class CofeHauses(db.Model):
 
 
 
-    author_name = db.Column(db.Integer, db.ForeignKey("users.name"), nullable=False)
+
 
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
@@ -52,7 +52,7 @@ class Users(UserMixin,db.Model):
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
 
-    hauses = relationship("CofeHauses", backref="users")
+
 
 
 db.create_all()
