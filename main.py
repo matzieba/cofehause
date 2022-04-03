@@ -26,7 +26,7 @@ def load_user(user_id):
 ##CONNECT TO DB
 #"sqlite:///coffe.db"
 #.replace("://", "ql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy(app)
 
