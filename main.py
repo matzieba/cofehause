@@ -33,7 +33,7 @@ db = SQLAlchemy(app)
 
 class CofeHauses(db.Model):
     __tablename__ = "cofe hauses"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True,)
     name = db.Column(db.String(250), unique=True, nullable=False)
     adres = db.Column(db.String(250), nullable=False)
     cofe_quality = db.Column(db.String(250), nullable=False)
@@ -42,7 +42,7 @@ class CofeHauses(db.Model):
     google_maps = db.Column(db.String(250), nullable=False)
 
     #relativ_db
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), unique=True,)
     user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
 
     user_numb = relationship("Users", foreign_keys = user_id)
@@ -50,7 +50,7 @@ class CofeHauses(db.Model):
 
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True,)
     name = db.Column(db.String(250), nullable=False)
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
