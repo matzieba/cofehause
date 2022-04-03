@@ -25,8 +25,8 @@ def load_user(user_id):
 
 ##CONNECT TO DB
 #"sqlite:///coffe.db"
-#.replace("://", "ql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
+#os.environ.get("DATABASE_URL").replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://vupmoxgmopzmov:7be3fabc4645573a216ba71b75f74a4a1c8359ff16a2088c5fd3dff1a0d5b575@ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d4ege44chunsdj"
 
 db = SQLAlchemy(app)
 
@@ -46,7 +46,7 @@ class CofeHauses(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
 
-    user_numb  = relationship("Users", foreign_keys = user_id)
+    user_numb = relationship("Users", foreign_keys = user_id)
     user_nam = relationship("Users", foreign_keys = user_name)
 
 class Users(UserMixin,db.Model):
