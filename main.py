@@ -42,7 +42,7 @@ class CofeHauses(db.Model):
     google_maps = db.Column(db.String(250), nullable=False)
 
     #relativ_db
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), unique=True,)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
 
     user_numb = relationship("Users", foreign_keys = user_id)
@@ -50,8 +50,8 @@ class CofeHauses(db.Model):
 
 class Users(UserMixin,db.Model):
     __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True, unique=True,)
-    name = db.Column(db.String(250), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, unique=True)
+    name = db.Column(db.String(250), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
     about = db.Column(db.Text)
