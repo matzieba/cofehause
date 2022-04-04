@@ -57,8 +57,8 @@ class CofeHauses(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     added_by = relationship("Users", back_populates = "cofehauses")
 
-    #user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
-
+    user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
+    added_by_name = relationship("Users", back_populates="cofehauses")
 
 
 db.create_all()
