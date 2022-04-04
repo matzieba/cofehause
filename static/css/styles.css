@@ -63,14 +63,14 @@ h1 {
     color: #BB9981;
 }
 
-#cafes > tbody > tr > td:nth-child(7) > a{
+#cafes > tbody > tr > td:nth-child(7) > a {
     text-decoration:none;
     color: #BB9981;
 }
 
 #cafes > tbody > tr > td:nth-child(8) > a {
     text-decoration:none;
-    color: #BB9981;
+    color:red;
 }
 
 #cafes > tbody > tr > td:nth-child(9) > a {
@@ -94,12 +94,6 @@ h1 {
     opacity: 0.7;
     list-style:none ;
 }
-
-#cafes > tbody > tr > td:nth-child(7) > a {
-    text-decoration:none;
-    color:red;
-}
-
 
 .usersdetail {
     width:30%;
