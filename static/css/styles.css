@@ -60,6 +60,22 @@ h1 {
 
 #cafes > tbody > tr > td:nth-child(6) > a {
     text-decoration:none;
+    color: #BB9981;
+}
+
+#cafes > tbody > tr > td:nth-child(7) > a{
+    text-decoration:none;
+    color: #BB9981;
+}
+
+#cafes > tbody > tr > td:nth-child(8) > a {
+    text-decoration:none;
+    color: #BB9981;
+}
+
+#cafes > tbody > tr > td:nth-child(9) > a {
+    text-decoration:none;
+    color: #BB9981;
 }
 
 .registerform {
