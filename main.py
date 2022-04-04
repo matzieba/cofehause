@@ -48,7 +48,7 @@ class CofeHauses(db.Model):
     wifi_quality = db.Column(db.String(250), nullable=False)
     komentar = db.Column(db.Text, nullable=False)
     google_maps = db.Column(db.String(250), nullable=False)
-    added_by_id = db.Column(db.Integer, nullable=False)
+    benutzer_id = db.Column(db.Integer, nullable=False)
     added_by = db.Column(db.String(250), nullable=False)
 
 

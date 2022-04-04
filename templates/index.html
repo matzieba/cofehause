@@ -30,11 +30,11 @@
           <td>{{ cofe.wifi_quality}}</td>
           <td>{{ cofe.komentar }}</td>
           <td><a href = "{{ cofe.google_maps }}">🌍</a></td>
-          <td><a href = "{{url_for('user', user = cofe.added_by_id)}}"> {{ cofe.added_by }} </a></td>
+          <td><a href = "{{url_for('user', user = cofe.benutzer_id)}}"> {{ cofe.added_by }} </a></td>
           {% if current_user.id == 1: %}
           <td><a href = "{{url_for('delete', cofeause_id=cofe.id)}}">✘</a></td>
           {% endif %}
-          {% if current_user.id == cofe.added_by_id %}
+          {% if current_user.id == cofe.benutzer_id %}
           <td><a href = "{{url_for('edit', cofeause_id=cofe.id)}}">Edit</a></td>
           {% endif %}
         </tr>
