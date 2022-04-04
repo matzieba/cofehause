@@ -40,7 +40,7 @@ class Users(UserMixin,db.Model):
     about = db.Column(db.Text)
 
 class CofeHauses(db.Model):
-    __tablename__ = "cofe hauses"
+    __tablename__ = "cofehauses"
     id = db.Column(db.Integer, primary_key=True, unique=True)
     name = db.Column(db.String(250), unique=True, nullable=False)
     adres = db.Column(db.String(250), nullable=False)
