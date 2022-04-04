@@ -175,7 +175,7 @@ def add_new_house():
                     komentar = request.form.get('komentar'),
                     google_maps = request.form.get('google_maps'),
                     cofe_quality = request.form.get('cofe_quality'),
-                    added_by_id = current_user.id,
+                    benutzer_id = current_user.id,
                     added_by = current_user.name
                     )
                 db.session.add(new_hause)
