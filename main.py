@@ -56,10 +56,11 @@ class CofeHauses(db.Model):
     #relativ_db
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     added_by = relationship("Users", back_populates = "cofehauses")
+    user = relationship("Address", foreign_keys=[user_id])
 
     user_name = db.Column(db.String(250), db.ForeignKey('users.name'))
     added_by_name = relationship("Users", back_populates="cofehauses")
-
+    user_nam = relationship("Users", foreign_keys=[user_name])
 
 db.create_all()
 
