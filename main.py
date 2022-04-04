@@ -48,10 +48,8 @@ class CofeHauses(db.Model):
     wifi_quality = db.Column(db.String(250), nullable=False)
     komentar = db.Column(db.Text, nullable=False)
     google_maps = db.Column(db.String(250), nullable=False)
-
-
     user_id = db.Column(db.Integer, nullable=False)
-    user_name = db.Column(db.String(250), nullable=False)
+    added_by = db.Column(db.String(250), nullable=False)
 
 
 db.create_all()
@@ -178,7 +176,7 @@ def add_new_house():
                     google_maps = request.form.get('google_maps'),
                     cofe_quality = request.form.get('cofe_quality'),
                     user_id = current_user.id,
-                    user_name = current_user.name
+                    added_by = current_user.name
                     )
                 db.session.add(new_hause)
                 db.session.commit()
