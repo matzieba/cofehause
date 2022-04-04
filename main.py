@@ -39,6 +39,10 @@ class Users(UserMixin,db.Model):
     email = db.Column(db.String(250), unique=True, nullable=False)
     about = db.Column(db.Text)
 
+    places = relationship("CofeHauses", back_populates="users")
+
+
+
 class CofeHauses(db.Model):
     __tablename__ = "cofehauses"
     id = db.Column(db.Integer, primary_key=True, unique=True)
