@@ -50,8 +50,8 @@ class CofeHauses(db.Model):
     google_maps = db.Column(db.String(250), nullable=False)
 
 
-    user_id = db.Column(db.Integer, nullable=False))
-    user_name = db.Column(db.String(250), nullable=False))
+    user_id = db.Column(db.Integer, nullable=False)
+    user_name = db.Column(db.String(250), nullable=False)
 
 
 db.create_all()
