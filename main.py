@@ -46,7 +46,7 @@ class Users(UserMixin,db.Model):
 class CofeHauses(db.Model):
     __tablename__ = "cofehauses"
     id = db.Column(db.Integer, primary_key=True, unique=True)
-    name = db.Column(db.String(250), unique=True, nullable=False)
+    name = db.Column(db.String(250), nullable=False)
     adres = db.Column(db.String(250), nullable=False)
     cofe_quality = db.Column(db.String(250), nullable=False)
     wifi_quality = db.Column(db.String(250), nullable=False)
